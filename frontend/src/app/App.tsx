@@ -28,6 +28,7 @@ const PRODUCTS: Product[] = productsData as Product[];
 
 const WA_NUMBER = "573000000000";
 const WA_BASE = `https://wa.me/${WA_NUMBER}`;
+const FALLBACK_IMAGE = "/Adidas Ultrabounce_120.jpg";
 
 const SOCIALS = [
   { name: "Instagram", url: "https://instagram.com/sevillaurban", icon: "instagram" as const },
@@ -79,6 +80,9 @@ function ProductCard({ product, onClick }: { product: Product; onClick: () => vo
         <img
           src={product.images[0]}
           alt={product.name}
+          onError={(event) => {
+            event.currentTarget.src = FALLBACK_IMAGE;
+          }}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         {!product.inStock && (
@@ -237,8 +241,11 @@ export default function App() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1758179760757-7a4d29759815?w=1600&h=900&fit=crop&auto=format"
+            src="/hero.jpg"
             alt="Sevilla Urban hero"
+            onError={(event) => {
+              event.currentTarget.src = FALLBACK_IMAGE;
+            }}
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C]/50 via-[#0A0A0C]/30 to-[#0A0A0C]" />
@@ -408,6 +415,9 @@ export default function App() {
                     <img
                       src={selectedProduct.images[modalImageIndex]}
                       alt={selectedProduct.name}
+                      onError={(event) => {
+                        event.currentTarget.src = FALLBACK_IMAGE;
+                      }}
                       className="w-full h-full object-cover"
                     />
                     {!selectedProduct.inStock && (
