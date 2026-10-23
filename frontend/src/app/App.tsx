@@ -5,6 +5,7 @@ import {
   MapPin, User, AlignLeft, Instagram, Facebook, Youtube,
 } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
+import productsData from "../data/products.json";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -13,6 +14,7 @@ interface Product {
   name: string;
   price: number;
   category: "zapatos" | "gorras";
+  gender?: "hombre" | "mujer" | "niños";
   sizes: string[];
   images: string[];
   description: string;
@@ -22,175 +24,7 @@ interface Product {
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-const PRODUCTS: Product[] = [
-  {
-    id: 1,
-    name: "Air Max 90 OG",
-    price: 280000,
-    category: "zapatos",
-    sizes: ["38", "39", "40", "41", "42", "43", "44"],
-    images: [
-      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1578118725208-1715eec528ca?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "El clásico que nunca pasa de moda. Suela de aire visible, diseño icónico y comodidad total para el pavimento.",
-    inStock: true,
-    badge: "CLÁSICO",
-  },
-  {
-    id: 2,
-    name: "Dunk Low Street",
-    price: 265000,
-    category: "zapatos",
-    sizes: ["37", "38", "39", "40", "41", "42", "43"],
-    images: [
-      "https://images.unsplash.com/photo-1697517529967-fc6b1e45563b?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1761651469951-4b941ecb27dc?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Perfecto para el asfalto o el skatepark. Cuero premium con refuerzo en puntera para uso intensivo.",
-    inStock: true,
-  },
-  {
-    id: 3,
-    name: "Flow Kick Urban",
-    price: 195000,
-    category: "zapatos",
-    sizes: ["36", "37", "38", "39", "40", "41", "42"],
-    images: [
-      "https://images.unsplash.com/photo-1716347685367-1eb5de72eb65?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1771711381792-2f03ea850c6b?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Silueta limpia y minimalista. Para quienes prefieren dejar que la actitud hable por el look.",
-    inStock: true,
-    badge: "NUEVO",
-  },
-  {
-    id: 4,
-    name: "Racer Low Pulse",
-    price: 240000,
-    category: "zapatos",
-    sizes: ["38", "39", "40", "41", "42", "43"],
-    images: [
-      "https://images.unsplash.com/photo-1542325059222-f8a794ccf28d?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Diseño de carreras en versión street. Suela ergonómica y upper transpirable para moverte sin límites.",
-    inStock: true,
-  },
-  {
-    id: 5,
-    name: "Neon Stage Pro",
-    price: 320000,
-    category: "zapatos",
-    sizes: ["39", "40", "41", "42", "43", "44"],
-    images: [
-      "https://images.unsplash.com/photo-1758179760757-7a4d29759815?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1542325059222-f8a794ccf28d?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Edición limitada con detalles neón. Para los que van un paso adelante del resto.",
-    inStock: false,
-  },
-  {
-    id: 6,
-    name: "Classic Red Hit",
-    price: 255000,
-    category: "zapatos",
-    sizes: ["37", "38", "39", "40", "41", "42", "43"],
-    images: [
-      "https://images.unsplash.com/photo-1578118725208-1715eec528ca?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1697517529967-fc6b1e45563b?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Rojo que domina. Cuero de alta calidad con base blanca que eleva cualquier outfit.",
-    inStock: true,
-  },
-  {
-    id: 7,
-    name: "Clean Low White",
-    price: 180000,
-    category: "zapatos",
-    sizes: ["36", "37", "38", "39", "40", "41", "42", "43"],
-    images: [
-      "https://images.unsplash.com/photo-1761651469951-4b941ecb27dc?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1716347685367-1eb5de72eb65?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Lo simple es lo supremo. Blanco puro, silueta baja, versatilidad total para cualquier ocasión.",
-    inStock: true,
-  },
-  {
-    id: 8,
-    name: "Stealth Dark Run",
-    price: 290000,
-    category: "zapatos",
-    sizes: ["38", "39", "40", "41", "42", "43", "44", "45"],
-    images: [
-      "https://images.unsplash.com/photo-1771711381792-2f03ea850c6b?w=700&h=700&fit=crop&auto=format",
-      "https://images.unsplash.com/photo-1758179760757-7a4d29759815?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "All-black todo terreno. La combinación perfecta de rendimiento y estética oscura.",
-    inStock: true,
-  },
-  {
-    id: 9,
-    name: "White Box Snap",
-    price: 65000,
-    category: "gorras",
-    sizes: ["Talla Única"],
-    images: [
-      "https://images.unsplash.com/photo-1691256676359-20e5c6d4bc92?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Snapback blanco premium. Panel estructurado con bordado minimalista y cierre ajustable.",
-    inStock: true,
-    badge: "NUEVO",
-  },
-  {
-    id: 10,
-    name: "Shadow Fitted 6P",
-    price: 75000,
-    category: "gorras",
-    sizes: ["S/M", "L/XL"],
-    images: [
-      "https://images.unsplash.com/photo-1737666636073-f15d9762cf83?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Negra. Sin concesiones. Seis paneles con bordado en pecho. Para los que mandan.",
-    inStock: true,
-  },
-  {
-    id: 11,
-    name: "Flame Dad Cap",
-    price: 70000,
-    category: "gorras",
-    sizes: ["Talla Única"],
-    images: [
-      "https://images.unsplash.com/photo-1638554091384-4ffef5a7f779?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "El dad cap que manda. Rojo encendido con perfil no estructurado y visera curvada.",
-    inStock: true,
-  },
-  {
-    id: 12,
-    name: "5-Panel Mesh",
-    price: 60000,
-    category: "gorras",
-    sizes: ["S/M", "L/XL"],
-    images: [
-      "https://images.unsplash.com/photo-1638461108741-d1f236f9823f?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Cinco paneles, espalda de malla. Liviana y ventilada, ideal para el calor urbano.",
-    inStock: false,
-  },
-  {
-    id: 13,
-    name: "Urban Box Logo",
-    price: 80000,
-    category: "gorras",
-    sizes: ["Talla Única"],
-    images: [
-      "https://images.unsplash.com/photo-1638461070991-c4d664429cdd?w=700&h=700&fit=crop&auto=format",
-    ],
-    description: "Box logo que identifica. Diseño limpio, calidad streetwear auténtica.",
-    inStock: true,
-  },
-];
+const PRODUCTS: Product[] = productsData as Product[];
 
 const WA_NUMBER = "573000000000";
 const WA_BASE = `https://wa.me/${WA_NUMBER}`;
@@ -199,11 +33,9 @@ const SOCIALS = [
   { name: "Instagram", url: "https://instagram.com/sevillaurban", icon: "instagram" as const },
   { name: "TikTok", url: "https://tiktok.com/@sevillaurban", icon: "tiktok" as const },
   { name: "Facebook", url: "https://facebook.com/sevillaurban", icon: "facebook" as const },
-  { name: "YouTube", url: "https://youtube.com/@sevillaurban", icon: "youtube" as const },
 ];
 
-const SHOE_SIZES = ["36", "37", "38", "39", "40", "41", "42", "43", "44", "45"];
-const CAP_SIZES = ["S/M", "L/XL", "Talla Única"];
+const SHOE_GENDERS = ["hombre", "mujer", "niños"] as const;
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
@@ -337,7 +169,7 @@ function FormField({
 
 export default function App() {
   const [category, setCategory] = useState<"todos" | "zapatos" | "gorras">("todos");
-  const [activeSize, setActiveSize] = useState<string | null>(null);
+  const [activeGender, setActiveGender] = useState<typeof SHOE_GENDERS[number] | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -352,12 +184,9 @@ export default function App() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">("idle");
   const catalogRef = useRef<HTMLDivElement>(null);
 
-  const visibleSizes =
-    category === "gorras" ? CAP_SIZES : category === "zapatos" ? SHOE_SIZES : [...SHOE_SIZES, ...CAP_SIZES];
-
   const filtered = PRODUCTS.filter((p) => {
     if (category !== "todos" && p.category !== category) return false;
-    if (activeSize && !p.sizes.includes(activeSize)) return false;
+    if (activeGender && p.gender !== activeGender) return false;
     return true;
   });
 
@@ -371,7 +200,7 @@ export default function App() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormStatus("sending");
     setTimeout(() => {
@@ -484,7 +313,7 @@ export default function App() {
                 {(["todos", "zapatos", "gorras"] as const).map((cat) => (
                   <button
                     key={cat}
-                    onClick={() => { setCategory(cat); setActiveSize(null); }}
+                    onClick={() => { setCategory(cat); setActiveGender(null); }}
                     className={`px-6 py-2.5 text-[11px] font-black tracking-[0.2em] uppercase transition-colors ${
                       category === cat
                         ? "bg-[#3DCBFF] text-[#0A0A0C]"
@@ -497,42 +326,44 @@ export default function App() {
               </div>
             </div>
 
-            {/* Size filters */}
+            {/* Shoe gender filters */}
+            {category !== "gorras" && (
             <div className="flex flex-wrap gap-2 items-center">
-              <span className="text-[#A8A8B0] text-[10px] tracking-[0.3em] mr-1 uppercase">Talla:</span>
+              <span className="text-[#A8A8B0] text-[10px] tracking-[0.3em] mr-1 uppercase">Género:</span>
               <button
-                onClick={() => setActiveSize(null)}
+                onClick={() => setActiveGender(null)}
                 className={`px-3 py-1.5 text-[11px] tracking-wider border transition-colors ${
-                  activeSize === null
+                  activeGender === null
                     ? "border-[#3DCBFF] text-[#3DCBFF] bg-[#3DCBFF]/5"
                     : "border-white/10 text-[#A8A8B0] hover:border-white/30"
                 }`}
               >
-                Todas
+                Todos
               </button>
-              {visibleSizes.map((size) => {
+              {SHOE_GENDERS.map((gender) => {
                 const hasStock = PRODUCTS.some(
                   (p) =>
-                    (category === "todos" || p.category === category) &&
-                    p.sizes.includes(size) &&
+                    (category === "todos" || p.category === "zapatos") &&
+                    p.gender === gender &&
                     p.inStock
                 );
                 return (
                   <button
-                    key={size}
-                    onClick={() => setActiveSize(activeSize === size ? null : size)}
+                    key={gender}
+                    onClick={() => setActiveGender(activeGender === gender ? null : gender)}
                     disabled={!hasStock}
                     className={`px-3 py-1.5 text-[11px] tracking-wider border transition-colors disabled:opacity-25 disabled:cursor-not-allowed ${
-                      activeSize === size
+                      activeGender === gender
                         ? "border-[#3DCBFF] text-[#3DCBFF] bg-[#3DCBFF]/5"
                         : "border-white/10 text-[#A8A8B0] hover:border-white/30 hover:text-white"
                     }`}
                   >
-                    {size}
+                    {gender === "niños" ? "Niños" : gender[0].toUpperCase() + gender.slice(1)}
                   </button>
                 );
               })}
             </div>
+            )}
           </div>
 
           {/* Grid */}
@@ -546,7 +377,7 @@ export default function App() {
             <div className="py-24 text-center text-[#A8A8B0]">
               <p className="text-lg mb-4">No hay productos con ese filtro.</p>
               <button
-                onClick={() => { setCategory("todos"); setActiveSize(null); }}
+                onClick={() => { setCategory("todos"); setActiveGender(null); }}
                 className="text-[#3DCBFF] text-sm hover:underline"
               >
                 Limpiar filtros
@@ -696,7 +527,7 @@ export default function App() {
             <h2 className="font-[Rajdhani] text-5xl md:text-6xl font-black tracking-tight">REDES SOCIALES</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {SOCIALS.map((social) => (
               <a
                 key={social.name}

@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "name": "Air Max 90 OG",
+    "price": 280000,
+    "category": "zapatos",
+    "gender": "hombre",
+    "sizes": ["38", "39", "40", "41", "42", "43", "44"],
+    "images": ["https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1578118725208-1715eec528ca?w=700&h=700&fit=crop&auto=format"],
+    "description": "El clásico que nunca pasa de moda. Suela de aire visible, diseño icónico y comodidad total para el pavimento.",
+    "inStock": true,
+    "badge": "CLÁSICO"
+  },
+  {
+    "id": 2,
+    "name": "Dunk Low Street",
+    "price": 265000,
+    "category": "zapatos",
+    "gender": "hombre",
+    "sizes": ["37", "38", "39", "40", "41", "42", "43"],
+    "images": ["https://images.unsplash.com/photo-1697517529967-fc6b1e45563b?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1761651469951-4b941ecb27dc?w=700&h=700&fit=crop&auto=format"],
+    "description": "Perfecto para el asfalto o el skatepark. Cuero premium con refuerzo en puntera para uso intensivo.",
+    "inStock": true
+  },
+  {
+    "id": 3,
+    "name": "Flow Kick Urban",
+    "price": 195000,
+    "category": "zapatos",
+    "gender": "mujer",
+    "sizes": ["36", "37", "38", "39", "40", "41", "42"],
+    "images": ["https://images.unsplash.com/photo-1716347685367-1eb5de72eb65?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1771711381792-2f03ea850c6b?w=700&h=700&fit=crop&auto=format"],
+    "description": "Silueta limpia y minimalista. Para quienes prefieren dejar que la actitud hable por el look.",
+    "inStock": true,
+    "badge": "NUEVO"
+  },
+  {
+    "id": 4,
+    "name": "Racer Low Pulse",
+    "price": 240000,
+    "category": "zapatos",
+    "gender": "hombre",
+    "sizes": ["38", "39", "40", "41", "42", "43"],
+    "images": ["https://images.unsplash.com/photo-1542325059222-f8a794ccf28d?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=700&h=700&fit=crop&auto=format"],
+    "description": "Diseño de carreras en versión street. Suela ergonómica y upper transpirable para moverte sin límites.",
+    "inStock": true
+  },
+  {
+    "id": 5,
+    "name": "Neon Stage Pro",
+    "price": 320000,
+    "category": "zapatos",
+    "gender": "mujer",
+    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "images": ["https://images.unsplash.com/photo-1758179760757-7a4d29759815?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1542325059222-f8a794ccf28d?w=700&h=700&fit=crop&auto=format"],
+    "description": "Edición limitada con detalles neón. Para los que van un paso adelante del resto.",
+    "inStock": false
+  },
+  {
+    "id": 6,
+    "name": "Classic Red Hit",
+    "price": 255000,
+    "category": "zapatos",
+    "gender": "hombre",
+    "sizes": ["37", "38", "39", "40", "41", "42", "43"],
+    "images": ["https://images.unsplash.com/photo-1578118725208-1715eec528ca?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1697517529967-fc6b1e45563b?w=700&h=700&fit=crop&auto=format"],
+    "description": "Rojo que domina. Cuero de alta calidad con base blanca que eleva cualquier outfit.",
+    "inStock": true
+  },
+  {
+    "id": 7,
+    "name": "Clean Low White",
+    "price": 180000,
+    "category": "zapatos",
+    "gender": "niños",
+    "sizes": ["36", "37", "38", "39", "40", "41", "42", "43"],
+    "images": ["https://images.unsplash.com/photo-1761651469951-4b941ecb27dc?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1716347685367-1eb5de72eb65?w=700&h=700&fit=crop&auto=format"],
+    "description": "Lo simple es lo supremo. Blanco puro, silueta baja, versatilidad total para cualquier ocasión.",
+    "inStock": true
+  },
+  {
+    "id": 8,
+    "name": "Stealth Dark Run",
+    "price": 290000,
+    "category": "zapatos",
+    "gender": "hombre",
+    "sizes": ["38", "39", "40", "41", "42", "43", "44", "45"],
+    "images": ["https://images.unsplash.com/photo-1771711381792-2f03ea850c6b?w=700&h=700&fit=crop&auto=format", "https://images.unsplash.com/photo-1758179760757-7a4d29759815?w=700&h=700&fit=crop&auto=format"],
+    "description": "All-black todo terreno. La combinación perfecta de rendimiento y estética oscura.",
+    "inStock": true
+  },
+  {
+    "id": 9,
+    "name": "White Box Snap",
+    "price": 65000,
+    "category": "gorras",
+    "sizes": ["Talla Única"],
+    "images": ["https://images.unsplash.com/photo-1691256676359-20e5c6d4bc92?w=700&h=700&fit=crop&auto=format"],
+    "description": "Snapback blanco premium. Panel estructurado con bordado minimalista y cierre ajustable.",
+    "inStock": true,
+    "badge": "NUEVO"
+  },
+  {
+    "id": 10,
+    "name": "Shadow Fitted 6P",
+    "price": 75000,
+    "category": "gorras",
+    "sizes": ["S/M", "L/XL"],
+    "images": ["https://images.unsplash.com/photo-1737666636073-f15d9762cf83?w=700&h=700&fit=crop&auto=format"],
+    "description": "Negra. Sin concesiones. Seis paneles con bordado en pecho. Para los que mandan.",
+    "inStock": true
+  },
+  {
+    "id": 11,
+    "name": "Flame Dad Cap",
+    "price": 70000,
+    "category": "gorras",
+    "sizes": ["Talla Única"],
+    "images": ["https://images.unsplash.com/photo-1638554091384-4ffef5a7f779?w=700&h=700&fit=crop&auto=format"],
+    "description": "El dad cap que manda. Rojo encendido con perfil no estructurado y visera curvada.",
+    "inStock": true
+  },
+  {
+    "id": 12,
+    "name": "5-Panel Mesh",
+    "price": 60000,
+    "category": "gorras",
+    "sizes": ["S/M", "L/XL"],
+    "images": ["https://images.unsplash.com/photo-1638461108741-d1f236f9823f?w=700&h=700&fit=crop&auto=format"],
+    "description": "Cinco paneles, espalda de malla. Liviana y ventilada, ideal para el calor urbano.",
+    "inStock": false
+  },
+  {
+    "id": 13,
+    "name": "Urban Box Logo",
+    "price": 80000,
+    "category": "gorras",
+    "sizes": ["Talla Única"],
+    "images": ["https://images.unsplash.com/photo-1638461070991-c4d664429cdd?w=700&h=700&fit=crop&auto=format"],
+    "description": "Box logo que identifica. Diseño limpio, calidad streetwear auténtica.",
+    "inStock": true
+  }
+]
